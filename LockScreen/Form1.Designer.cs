@@ -34,9 +34,9 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.关闭监控ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,15 +66,22 @@
             this.关闭监控ToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(119, 48);
             // 
             // 关闭监控ToolStripMenuItem
             // 
             this.关闭监控ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("关闭监控ToolStripMenuItem.Image")));
             this.关闭监控ToolStripMenuItem.Name = "关闭监控ToolStripMenuItem";
-            this.关闭监控ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.关闭监控ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.关闭监控ToolStripMenuItem.Text = "关闭监控";
             this.关闭监控ToolStripMenuItem.Click += new System.EventHandler(this.关闭监控ToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.helpToolStripMenuItem.Text = "帮助";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // timer1
             // 
@@ -85,13 +92,6 @@
             // 
             this.timer2.Interval = 10000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.helpToolStripMenuItem.Text = "帮助";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // Form1
             // 

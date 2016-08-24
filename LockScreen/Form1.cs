@@ -2,6 +2,7 @@
 {
     using System;
     using System.Management;
+    using System.Threading;
     using System.Windows.Forms;
     public partial class Form1 : Form
     {
@@ -62,6 +63,12 @@
                 ShowInTaskbar = false;
                 notifyIcon1.Visible = true;
             }
+            if(WindowState == FormWindowState.Normal)
+            {
+                ShowInTaskbar = true;
+                Show();
+                notifyIcon1.Visible = false;
+            }
         }
         private void 关闭监控ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -71,19 +78,15 @@
                 Close();
             }
         }
-        bool isFirst = false;
-        private object lockObj = new object();
+        volatile bool isFirst = false;
         private void timer1_Tick(object sender, EventArgs e)
         {
             var hwnd = Win32Helper.FindWindow("AlertDialog", "微信");
             if (hwnd != IntPtr.Zero)
             {
-                lock (lockObj)
-                {
-                    isFirst = true;
-                    timer1.Enabled = false;
-                    timer2.Enabled = true;
-                }
+                isFirst = true;
+                timer1.Enabled = false;
+                timer2.Enabled = true;
                 Win32Helper.LockWorkStation();
             }
         }
@@ -94,12 +97,9 @@
             {
                 if (isFirst)
                 {
-                    lock (lockObj)
-                    {
-                        isFirst = false;
-                        timer2.Enabled = false;
-                        timer1.Enabled = true;
-                    }
+                    isFirst = false;
+                    timer2.Enabled = false;
+                    timer1.Enabled = true;
                 }
             }
         }
